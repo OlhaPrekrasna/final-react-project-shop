@@ -9,7 +9,7 @@ import Counter from '../../components/Counter/Counter';
 import styles from './ProductDetails.module.css';
 import { addToCart } from '../../redux/cartSlice';
 
-const API_URL = 'https://pet-shop-backend.slavab.kz';
+const API_URL = 'http://localhost:3333';
 
 function ProductDetails() {
   const { productId } = useParams();
@@ -27,7 +27,9 @@ function ProductDetails() {
       setError(null);
 
       try {
-        const productResponse = await axios.get(`${API_URL}/products/${productId}`);
+        const productResponse = await axios.get(
+          `${API_URL}/products/${productId}`
+        );
 
         const data = productResponse.data;
         const prod = Array.isArray(data) ? data[0] : data;
@@ -43,7 +45,9 @@ function ProductDetails() {
         setCategories(categoriesResponse.data || []);
       } catch (fetchError) {
         console.error(fetchError);
-        setError('An error occurred while fetching product details. Please try again later.');
+        setError(
+          'An error occurred while fetching product details. Please try again later.'
+        );
       } finally {
         setIsLoading(false);
       }
@@ -65,11 +69,19 @@ function ProductDetails() {
 
   if (isLoading) return <p>Loading...</p>;
 
-  if (error) return (
-    <div style={{color: 'red', fontWeight: 'bold', textAlign: 'center', marginTop: '50px'}}>
-      {error}
-    </div>
-  );
+  if (error)
+    return (
+      <div
+        style={{
+          color: 'red',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          marginTop: '50px',
+        }}
+      >
+        {error}
+      </div>
+    );
 
   if (!product) return <p>Product not found.</p>;
 
@@ -95,7 +107,11 @@ function ProductDetails() {
         />
         <div className={styles.productContainer}>
           <div className={styles.productImageContainer}>
-            <img src={`${API_URL}${product.image}`} alt={product.title} className={styles.productImage}/>
+            <img
+              src={`${API_URL}${product.image}`}
+              alt={product.title}
+              className={styles.productImage}
+            />
           </div>
           <div className={styles.productInfo}>
             <h2 className={styles.productTitle}>{product.title}</h2>
@@ -107,7 +123,11 @@ function ProductDetails() {
                 <>
                   <span className={styles.originalPrice}>${product.price}</span>
                   <span className={styles.discountFlag}>
-                    -{Math.round(((product.price - discountPrice) / product.price) * 100)}%
+                    -
+                    {Math.round(
+                      ((product.price - discountPrice) / product.price) * 100
+                    )}
+                    %
                   </span>
                 </>
               )}
@@ -120,10 +140,17 @@ function ProductDetails() {
               <h3>Description</h3>
               {product.description ? (
                 <>
-                  <p className={`${styles.productDescriptionText} ${isExpanded ? styles.expanded : styles.collapsed}`}>
+                  <p
+                    className={`${styles.productDescriptionText} ${
+                      isExpanded ? styles.expanded : styles.collapsed
+                    }`}
+                  >
                     {product.description}
                   </p>
-                  <button className={styles.readMoreButton} onClick={() => setIsExpanded(!isExpanded)}>
+                  <button
+                    className={styles.readMoreButton}
+                    onClick={() => setIsExpanded(!isExpanded)}
+                  >
                     {isExpanded ? 'Close' : 'More'}
                   </button>
                 </>
@@ -140,9 +167,6 @@ function ProductDetails() {
 
 export default ProductDetails;
 
-
-
-
 // import React, { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
 // import axios from 'axios';
@@ -154,7 +178,7 @@ export default ProductDetails;
 // import styles from './ProductDetails.module.css';
 // import { addToCart } from '../../redux/cartSlice';
 
-// const API_URL = 'https://pet-shop-backend.slavab.kz';
+// const API_URL = 'http://localhost:3333';
 
 // function ProductDetails() {
 //   const { productId } = useParams();

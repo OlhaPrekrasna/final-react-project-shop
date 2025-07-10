@@ -54,9 +54,7 @@ const DiscountedProducts = () => {
       setError(null);
 
       try {
-        const response = await axios.get(
-          'https://pet-shop-backend.slavab.kz/products/all'
-        );
+        const response = await axios.get('http://localhost:3333/products/all');
         const discountedProducts = response.data.filter(
           (product) => product.discont_price
         ); // оставляю discont_price, если так в API

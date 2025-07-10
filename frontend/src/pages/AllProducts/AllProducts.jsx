@@ -24,9 +24,7 @@ function AllProducts() {
       setError(null);
 
       try {
-        const response = await axios.get(
-          'https://pet-shop-backend.slavab.kz/products/all'
-        );
+        const response = await axios.get('http://localhost:3333/products/all');
         setProducts(response.data);
       } catch (error) {
         console.error(error);

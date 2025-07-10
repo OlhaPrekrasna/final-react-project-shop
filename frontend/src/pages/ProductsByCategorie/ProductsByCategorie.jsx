@@ -27,7 +27,7 @@ function ProductsByCategorie() {
 
       try {
         const response = await axios.get(
-          `https://pet-shop-backend.slavab.kz/categories/${categoryId}`
+          `http://localhost:3333/categories/${categoryId}`
         );
         if (response.status === 200) {
           setProducts(response.data.data);

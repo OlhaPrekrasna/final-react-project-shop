@@ -26,27 +26,30 @@ function FormForDiscount() {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post('https://pet-shop-backend.slavab.kz/sale/send', {
+      const response = await axios.post('http://localhost:3333/sale/send', {
         name,
         phone,
         email,
       });
 
       if (response.status === 200) {
-        dispatch(openModal({
-          title: 'Success',
-          content: [
-            'Your request has been submitted successfully!',
-          ],
-        }));
+        dispatch(
+          openModal({
+            title: 'Success',
+            content: ['Your request has been submitted successfully!'],
+          })
+        );
         setIsSubmitted(true);
         clearForm();
       }
     } catch (error) {
-      dispatch(openModal({
-        title: 'Error',
-        content: 'There was an error submitting your request. Please try again later.',
-      }));
+      dispatch(
+        openModal({
+          title: 'Error',
+          content:
+            'There was an error submitting your request. Please try again later.',
+        })
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -65,10 +68,10 @@ function FormForDiscount() {
     setFormTouched(false);
   };
 
-//   const handleCloseModal = () => {
-//     dispatch(closeModal());
-//     clearForm();
-//   };
+  //   const handleCloseModal = () => {
+  //     dispatch(closeModal());
+  //     clearForm();
+  //   };
 
   return (
     <div className="globalContainer">
@@ -76,10 +79,18 @@ function FormForDiscount() {
         <h2>5% off on the first order</h2>
         <div className={styles.formContainer}>
           <div className={styles.imageContainer}>
-            <img src={discountImage} alt="Discount" className={styles.discountImage} />
+            <img
+              src={discountImage}
+              alt="Discount"
+              className={styles.discountImage}
+            />
           </div>
           <div className={styles.formContent}>
-            <form onSubmit={handleSubmit} className={styles.formGroupBox} noValidate>
+            <form
+              onSubmit={handleSubmit}
+              className={styles.formGroupBox}
+              noValidate
+            >
               <div className={styles.formGroup}>
                 <label>
                   <input

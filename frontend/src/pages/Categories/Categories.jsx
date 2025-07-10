@@ -12,7 +12,7 @@ const Categories = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          'https://pet-shop-backend.slavab.kz/categories/all'
+          'http://localhost:3333/categories/all'
         );
         setCategories(response.data || []);
       } catch (error) {
@@ -49,7 +49,7 @@ const Categories = () => {
                   className={styles.categoryItem}
                 >
                   <img
-                    src={`https://pet-shop-backend.slavab.kz${category.image}`}
+                    src={`http://localhost:3333${category.image}`}
                     alt={category.title || 'Category image'}
                     className={styles.categoryImage}
                   />

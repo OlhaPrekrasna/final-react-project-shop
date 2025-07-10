@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../Categories/Categories.module.css';
 
@@ -9,10 +9,10 @@ const Categories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('https://pet-shop-backend.slavab.kz/products/all');
+        const response = await axios.get('http://localhost:3333/products/all');
         setCategories(response.data);
       } catch (error) {
-        console.error("Error fetching categories:", error);
+        console.error('Error fetching categories:', error);
       }
     };
 
@@ -22,7 +22,6 @@ const Categories = () => {
   return (
     <div className="globalContainer">
       <div className={styles.categories}>
-
         <div className="titleBlock">
           <h2>Categories</h2>
           <div className="titleBlockLine"></div>
@@ -34,16 +33,20 @@ const Categories = () => {
         <ul className={styles.gridCategoriesContainer}>
           {categories.slice(0, 4).map((category) => (
             <li key={category.id} className={styles.gridCategoriesItem}>
-              <Link to={`/categories/${category.id}`} className={styles.categoryItem}>
-                <img src={`https://pet-shop-backend.slavab.kz/${category.image}`} alt={category.title} className={styles.categoryImage} />
-                <h3 className={styles.categoryName}>
-                  {category.title}
-                </h3>
+              <Link
+                to={`/categories/${category.id}`}
+                className={styles.categoryItem}
+              >
+                <img
+                  src={`http://localhost:3333/${category.image}`}
+                  alt={category.title}
+                  className={styles.categoryImage}
+                />
+                <h3 className={styles.categoryName}>{category.title}</h3>
               </Link>
             </li>
           ))}
         </ul>
-
       </div>
     </div>
   );

@@ -11,11 +11,13 @@ const Sale = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://pet-shop-backend.slavab.kz/products/all');
-        const discountedProducts = response.data.filter(product => product.discont_price);
+        const response = await axios.get('http://localhost:3333/products/all');
+        const discountedProducts = response.data.filter(
+          (product) => product.discont_price
+        );
         setProducts(discountedProducts);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error('Error fetching products:', error);
       }
     };
 
@@ -25,7 +27,6 @@ const Sale = () => {
   return (
     <div className="globalContainer">
       <div className={styles.sale}>
-        
         <div className="blockTitle">
           <h2>Sale</h2>
           <div className="blockTitleLine"></div>
@@ -39,7 +40,6 @@ const Sale = () => {
             <ProductCard key={product.id} product={product} />
           ))}
         </ul>
-        
       </div>
     </div>
   );

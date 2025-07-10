@@ -23,10 +23,15 @@ const ProductCard = ({ product }) => {
   return (
     <li className={styles.productCard}>
       <div className={styles.productImageContainer}>
-        <img src={`https://pet-shop-backend.slavab.kz/${product.image}`} alt={product.title} className={styles.productImage} />
+        <img
+          src={`http://localhost:3333/${product.image}`}
+          alt={product.title}
+          className={styles.productImage}
+        />
         {product.discont_price && (
           <div className={styles.discountFlag}>
-            -{calculateDiscountPercentage(product.price, product.discont_price)}%
+            -{calculateDiscountPercentage(product.price, product.discont_price)}
+            %
           </div>
         )}
         <div className={styles.addButtonContainer}>
@@ -39,7 +44,9 @@ const ProductCard = ({ product }) => {
           <div className={styles.priceContainer}>
             {product.discont_price ? (
               <>
-                <span className={styles.currentPrice}>${product.discont_price}</span>
+                <span className={styles.currentPrice}>
+                  ${product.discont_price}
+                </span>
                 <span className={styles.originalPrice}>${product.price}</span>
               </>
             ) : (
