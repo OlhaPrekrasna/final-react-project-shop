@@ -1,9 +1,9 @@
 .footerStyle {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #282828;
   padding-top: 80px;
   padding-bottom: 80px;
-}  
+}
 
 .gridContainer {
   display: grid;
@@ -18,12 +18,12 @@
   align-items: start;
   gap: 9px 16px;
   padding: 32px;
-  background-color: #F1F3F4;
+  background-color: #f1f3f4;
   border-radius: 12px;
 }
 
 .gridItem > :first-child {
-  color: #8B8B8B;
+  color: #8b8b8b;
 }
 
 .gridItem > :last-child {
@@ -44,7 +44,6 @@
 .icon {
   width: 43px;
   height: auto;
-  
 }
 
 .mapContainer {
@@ -60,7 +59,6 @@ iframe {
   clip-path: inset(0 round 16px);
 }
 
-/* Адаптивные стили */
 @media (max-width: 768px) {
   .gridContainer {
     grid-template-columns: 1fr;

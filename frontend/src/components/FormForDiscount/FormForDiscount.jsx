@@ -55,7 +55,7 @@ function FormForDiscount() {
     }
   };
 
-  const isNameValid = () => /^[A-Za-z\s]+$/.test(name);
+  const isNameValid = () => /^[A-Za-zА-Яа-яЁё\s]+$/.test(name);
   const isPhoneValid = () => /^\d{10,15}$/.test(phone);
   const isEmailValid = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -67,11 +67,6 @@ function FormForDiscount() {
     setEmail('');
     setFormTouched(false);
   };
-
-  //   const handleCloseModal = () => {
-  //     dispatch(closeModal());
-  //     clearForm();
-  //   };
 
   return (
     <div className="globalContainer">

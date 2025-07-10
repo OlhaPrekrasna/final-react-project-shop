@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './NotFound.module.css';
-import notFoundImage from '../../assets/images/not-found.png'; // Переименовали импорт
+import notFoundImage from '../../assets/images/not-found.png';
 import Four from '../../assets/icons/four.svg';
 
 const NotFound = () => {

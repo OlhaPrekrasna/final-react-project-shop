@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../ButtonOrder/ButtonOrder.module.css'
-<ButtonOrder />
+import styles from '../ButtonOrder/ButtonOrder.module.css';
 
 function ButtonOrder({ onClick, disabled }) {
   const [state, setState] = useState('normal');
@@ -17,7 +16,11 @@ function ButtonOrder({ onClick, disabled }) {
 
   return (
     <button
-      className={`${styles.ButtonOrder} ${state === 'ordered' ? styles.orderedState : ''} ${disabled ? styles.disabled : ''}`}
+      className={`
+        ${styles.ButtonOrder} 
+        ${state === 'ordered' ? styles.orderedState : ''} 
+        ${disabled ? styles.disabled : ''}
+      `}
       onClick={handleClick}
       disabled={disabled}
     >

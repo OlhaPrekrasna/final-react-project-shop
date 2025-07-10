@@ -88,8 +88,12 @@ function Cart() {
       dispatch(
         openModal({
           title: 'Congratulations!',
-          content: ['Your order has been successfully placed on the website.'],
+          content: [
+            'Your order has been successfully placed on the website.',
+            'A manager will contact you shortly to confirm your order.',
+          ],
         })
+        
       );
 
       setIsSubmitted(true);

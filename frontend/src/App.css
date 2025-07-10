@@ -8,9 +8,7 @@
   font-size: 20px;
   line-height: 26px;
   font-weight: 500;
-  
 }
-
 
 h2 {
   font-size: 64px;
@@ -24,7 +22,6 @@ h2 {
   margin-inline: auto;
   padding-inline: 15px;
 }
-
 
 .titleBlock h2 {
   font-size: 64px;
@@ -43,28 +40,25 @@ h2 {
 .titleBlockLine {
   width: 100%;
   height: 1px;
-  background-color: #DDDDDD;
+  background-color: #dddddd;
   margin-left: 32px;
 }
 
 .titleBlockButton {
   font-size: 16px;
   font-weight: 500;
-  
-  background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
+
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
   border-radius: 6px;
   white-space: nowrap;
   padding: 6px 16px;
 }
 
 .titleBlockButton:hover {
-  color: #8B8B8B;
-  background-color: #F1F3F4;
+  color: #8b8b8b;
+  background-color: #f1f3f4;
 }
-
-
-
 
 a,
 Link,
@@ -84,19 +78,16 @@ ol {
 
 button,
 select,
-a{
+a {
   text-decoration: none;
- cursor: pointer;
+  cursor: pointer;
   color: #282828;
 }
-
-
 
 a:hover {
   color: #4344497f;
   transform: scale(1.01);
 }
-
 
 *,
 *::before,
@@ -104,37 +95,16 @@ a:hover {
   box-sizing: border-box;
 }
 
-/**
-    Убираем внутренние отступы слева тегам списков,
-    у которых есть атрибут class
-   */
 :where(ul, ol):where([class]) {
   padding-left: 0;
 }
 
-/**
-    Убираем внешние отступы body и двум другим тегам,
-    у которых есть атрибут class
-   */
 body,
 :where(blockquote, figure):where([class]) {
   margin: 0;
 }
 
-/**
-    Убираем внешние отступы вертикали нужным тегам,
-    у которых есть атрибут class
-   */
-:where(h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol,
-  dl):where([class]) {
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
   margin-block: 0;
 }
 
@@ -148,46 +118,24 @@ body,
   border: none;
 }
 
-/**
-    Убираем стандартный маркер маркированному списку,
-    у которого есть атрибут class
-   */
 :where(ul[class]) {
   list-style: none;
 }
 
-/**
-    Обнуляем вертикальные внешние отступы параграфа,
-    объявляем локальную переменную для внешнего отступа вниз,
-    чтобы избежать взаимодействие с более сложным селектором
-   */
 p {
-  /* --paragraphMarginBottom: 24px; */
-
   margin-block: 0;
 }
 
-/**
-    Внешний отступ вниз для параграфа без атрибута class,
-    который расположен не последним среди своих соседних элементов
-   */
 p:where(:not([class]):not(:last-child)) {
   margin-bottom: var(--paragraphMarginBottom);
 }
 
-
-/**
-    Упрощаем работу с изображениями
-   */
 img {
   display: block;
   max-width: 100%;
 }
 
-/**
-    Наследуем свойства шрифт для полей ввода
-   */
-input, 
+input,
 textarea,
 select,
 button {
@@ -195,60 +143,42 @@ button {
 }
 
 html {
-  /**
-      Пригодится в большинстве ситуаций
-      (когда, например, нужно будет "прижать" футер к низу сайта)
-     */
   height: 100%;
 }
 
-/**
-    Плавный скролл
-   */
 html,
 :has(:target) {
   scroll-behavior: smooth;
 }
 
 body {
-  /**
-      Пригодится в большинстве ситуаций
-      (когда, например, нужно будет "прижать" футер к низу сайта)
-     */
   min-height: 100%;
-  /**
-      Унифицированный интерлиньяж
-     */
   line-height: 1.5;
 }
 
+svg *[fill] {
+  fill: currentColor;
+}
 
+svg *[stroke] {
+  stroke: currentColor;
+}
 
+svg * {
+  transition-property: fill, stroke;
+}
 
-   svg *[fill] {
-    fill: currentColor
+@media (max-width: 768px) {
+  .titleBlock h2 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 70.4px;
+    margin: 0 0 10px 0;
+    white-space: nowrap;
   }
-  
-  svg *[stroke] {
-    stroke: currentColor
-  }
-  
-  
-  svg * {
-    transition-property: fill, stroke;
-  }
+}
 
-  @media (max-width: 768px) {
-    .titleBlock h2 {
-      font-size: 34px;
-      font-weight: 700;
-      line-height: 70.4px;
-      margin: 0 0 10px 0;
-      white-space: nowrap;
-    }
-  }
-  
-  img:hover{
-    transform: scale(1.01);
-    cursor: pointer;
-  }
+img:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}

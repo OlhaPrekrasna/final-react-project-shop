@@ -18,7 +18,6 @@ const DiscountedProducts = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Локальные состояния для фильтров (читаем из searchParams)
   const [minPrice, setMinPrice] = useState(
     parseFloat(searchParams.get('minPrice')) || 0
   );
@@ -29,7 +28,6 @@ const DiscountedProducts = () => {
     searchParams.get('includeDiscount') === 'true'
   );
 
-  // Синхронизация sortType с URL
   useEffect(() => {
     if (sortType === 'default') {
       searchParams.delete('sortType');
@@ -37,17 +35,14 @@ const DiscountedProducts = () => {
       searchParams.set('sortType', sortType);
     }
     setSearchParams(searchParams);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortType]);
 
-  // Синхронизация локальных фильтров с URL
   useEffect(() => {
     setMinPrice(parseFloat(searchParams.get('minPrice')) || 0);
     setMaxPrice(parseFloat(searchParams.get('maxPrice')) || Infinity);
     setIncludeDiscount(searchParams.get('includeDiscount') === 'true');
   }, [searchParams]);
 
-  // Получаем данные с API
   useEffect(() => {
     const fetchProducts = async () => {
       setIsLoading(true);
@@ -57,7 +52,7 @@ const DiscountedProducts = () => {
         const response = await axios.get('http://localhost:3333/products/all');
         const discountedProducts = response.data.filter(
           (product) => product.discont_price
-        ); // оставляю discont_price, если так в API
+        );
         setProducts(discountedProducts);
       } catch (fetchError) {
         console.error('Error fetching products:', fetchError);
@@ -72,7 +67,6 @@ const DiscountedProducts = () => {
     fetchProducts();
   }, []);
 
-  // Фильтрация и сортировка продуктов
   useEffect(() => {
     const filtered = products.filter((product) => {
       const productPrice = product.discont_price || product.price;

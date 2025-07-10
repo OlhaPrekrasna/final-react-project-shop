@@ -9,7 +9,6 @@ import Footer from './components/Footer/Footer';
 
 import ModalBlock from './components/ModalBlock/ModalBlock';
 import ModalConnect from './components/ModalBlock/ModalConnect';
-import ModalConnectOld from './components/ModalBlock/ModalConnectOld'; // Не используется, можешь удалить
 
 import HomePage from './pages/HomePage/Home';
 import Categories from './pages/Categories/Categories';
